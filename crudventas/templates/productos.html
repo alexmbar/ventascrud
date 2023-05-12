@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Productos</h1>
+
+{% comment %} <ul> {% endcomment %}
+  {% if productos %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Fecha de registro</th>
+        <th>Estatus</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for producto in productos %}
+      <tr>
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.descripción }}</td>
+        <td>{{ producto.precio }}</td>
+        <td>{{ producto.fecha_registro }}</td>
+        <td>{{ producto.estatus }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+  <!-- hacer algo con los elementos -->
+  {% comment %} {% for producto in productos %}
+  <li>
+    <h1>{{producto.nombre}}</h1>
+    <p>{{producto.descripción}}</p>
+    <p>{{producto.precio}}</p>
+    <p>{{producto.fecha_registro}}</p>
+    <p>{{producto.estatus}}</p>
+  </li>
+  {% endfor %}  {% endcomment %}
+  {% else %}
+  <p>No hay elementos en los productos.</p>
+  {% endif %}
+{% comment %} </ul> {% endcomment %}
+{% endblock %}
